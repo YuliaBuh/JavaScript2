@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Интернет-магазин</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=div, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <container>
+            <header>
+                <div class="menu">
+                    <h1 class="text">Menu</h1>           
+                    <!-- <button class="cart-button" type="button">Корзина<span id="cartcoint"></span></button> -->
+                    <a href="#basket" class="cart-button" onclick="createBasket()">Корзина<span id="cartcoint"></span></a>
+                    <a href="#x" class="overlay" id="basket"></a>
+                    <div class="window">
+                    <div class="basket-list">
+                    </div>
+                    <a class="close" title="Закрыть" href="#close"></a>
+                    </div>                    
+                </div>
+            </header>
+            <main>
+                <div class="products-list">
+                
+                </div>
+            </main>
+        </container>
+    
+    <script src="script.js"></script>
+    
+</body>
+</html>
