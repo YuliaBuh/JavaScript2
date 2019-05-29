@@ -5,30 +5,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=div, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <container>
+    <div id="app">
         <header>
-            <div class="menu">
-                <h1 class="text">Shop</h1>           
-            <div class="cart">
-            <form action="#" class="search-form">
-                <input type="text" class="search-field">
-                <button class="btn-search" type="submit">
-                </button>
-            </form>
-            <button class="btn-cart" type="button">Корзина</button>
-            <div class="cart-block invisible"></div>
-            </div> 
-            </div>                  
+            <div class="logo">Shop</div> 
+                <div class="cart">
+                    <form action="#" class="search-form" @submit.prevent='filter'>
+                        <input type="text" class="search-field" v-model="userSearch">
+                        <button class="btn-search" type="submit">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </form>
+                    <button class="btn-cart" type="button" @click="showCart = !showCart">Корзина</button>
+                    <cart 
+                    :cart-items="cartItems"
+                    :img="imgCart"
+                    :visibility="showCart"
+                    @remove="remove"></cart>
+                </div> 
         </header>
         <main>
-            <div class="products"></div>
+            <products :products="filtered" :img="imgCatalog" @add-product="addProduct"> </products>
         </main>
-    </container>
+    </div>
 
+    <script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js" integrity="sha384-0pzryjIRos8mFBWMzSSZApWtPl/5++eIfzYmTgBBmXYdhvxPc+XcFEk+zJwDgWbP" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+    <script src="CartComponent.js"></script>
+    <script src="ProdComponent.js"></script>
     <script src="script.js"></script> 
 </body>
 </html>
